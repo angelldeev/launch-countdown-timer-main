@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Launch countdown timer</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <main class="main">
+      <div class="main-content">
+        <h1> We're launching <br> soon </h1>
+        <div class="time">
+          <div class="timer">
+            <p id="day"></p>
+            <span>days</span>
+          </div>
+          <div class="timer">
+            <p id="hours"></p>
+            <span>hours</span>
+          </div>
+          <div class="timer">
+            <p id="minutes"></p>
+            <span>minutes</span>
+          </div>
+          <div class="timer">
+            <p id="seconds"></p>
+            <span>seconds</span>
+          </div>
+        </div>
+        <div class="icons">
+          <img src="images/icon-facebook.svg" alt="icon-facebook">
+          <img src="images/icon-instagram.svg" alt="icon-instagram">
+          <img src="images/icon-pinterest.svg" alt="icon-pinterest">
+        </div>
+      </div>
+    </main>
+  </div>
+  We're launching soon
+
+  Days
+  Hours
+  Minutes
+  Seconds
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Dehorus</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  <script>
+    const d = document;
+    let countDownDate = new Date(' Mar 22 2021 16:25:54 GMT-0600').getTime();
+    let x = setInterval(() => {
+      let now = new Date().getTime();
+      let distance = countDownDate - now;
+
+      let days = ('0' + Math.floor(distance / (1000 * 60 * 60 * 24))).slice(-2);
+      let hours = ('0' + Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).slice(-2);
+      let minutes = ('0' + Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).slice(-2);
+      let seconds = ('0' + Math.floor((distance % (1000 * 60)) / (1000))).slice(-2);
+
+      d.getElementById('day').innerHTML = days;
+      d.getElementById('hours').innerHTML = hours;
+      d.getElementById('minutes').innerHTML = minutes;
+      d.getElementById('seconds').innerHTML = seconds;
+    });
+  </script>
+</body>
+
+</html>
